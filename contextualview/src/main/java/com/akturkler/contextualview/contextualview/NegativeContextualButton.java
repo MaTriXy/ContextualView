@@ -24,17 +24,17 @@ import android.content.Context;
 final class NegativeContextualButton extends ContextualButton {
     public static final int ID = 1;
 
-    public NegativeContextualButton(Context context) {
+    NegativeContextualButton(Context context) {
         super(context);
     }
 
     @Override
-    public int getDefaultId() {
+    protected int getDefaultId() {
         return ID;
     }
 
     @Override
-    public void setDefaultText() {
+    protected void setDefaultText() {
         setText("Negative");
     }
 }

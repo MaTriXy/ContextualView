@@ -45,26 +45,26 @@ class DividerView extends View {
         setLayoutParams(tempLayoutParams);
     }
 
-    public static class Builder {
+    static class Builder {
         private Context mContext;
         private int mWidth;
         private int mColor;
 
-        public Builder(Context context) {
+        Builder(Context context) {
             mContext = context;
         }
 
-        public Builder setWidth(int width) {
+        Builder setWidth(int width) {
             this.mWidth = width;
             return this;
         }
 
-        public Builder setColor(int color) {
+        Builder setColor(int color) {
             this.mColor = color;
             return this;
         }
 
-        public DividerView build() {
+        DividerView build() {
             return new DividerView(mContext, this);
         }
 

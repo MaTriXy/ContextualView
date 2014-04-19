@@ -17,6 +17,7 @@
 package com.akturkler.contextualview.contextualview;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -24,17 +25,15 @@ import android.widget.LinearLayout;
 /**
  * @author Emre Akturk
  */
-public class ContextualBar extends LinearLayout implements View.OnClickListener {
+public final class ContextualBar extends LinearLayout implements View.OnClickListener {
     private PositiveContextualButton mPositiveButton;
     private NegativeContextualButton mNegativeButton;
     private onContextualBarClickListener mListener;
 
     public ContextualBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    public ContextualBar(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+        if (!isInEditMode())
+            init();
     }
 
     private void init() {
@@ -45,17 +44,19 @@ public class ContextualBar extends LinearLayout implements View.OnClickListener 
 
     private void addPositiveButton() {
         mPositiveButton = new PositiveContextualButton(getContext());
+        mPositiveButton.setOnClickListener(this);
         addView(mPositiveButton);
     }
 
     private void addNegativeButton() {
         mNegativeButton = new NegativeContextualButton(getContext());
+        mNegativeButton.setOnClickListener(this);
         addView(mNegativeButton);
 
     }
 
     private void addDivider() {
-        DividerView tempDividerView = new DividerView.Builder(getContext()).setColor(10).setWidth(10).build();
+        DividerView tempDividerView = new DividerView.Builder(getContext()).setColor(Color.BLACK).setWidth(10).build();
         addView(tempDividerView);
     }
 
@@ -74,7 +75,7 @@ public class ContextualBar extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public void setListener(onContextualBarClickListener callback) {
+    public void setOnContextualBarClickListener(onContextualBarClickListener callback) {
         this.mListener = callback;
     }
 

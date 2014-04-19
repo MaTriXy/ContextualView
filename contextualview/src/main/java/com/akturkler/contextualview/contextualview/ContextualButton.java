@@ -29,12 +29,12 @@ import android.widget.LinearLayout;
  */
 abstract class ContextualButton extends Button {
 
-    public ContextualButton(Context context) {
+    protected ContextualButton(Context context) {
         super(context);
         init();
     }
 
-    private final void init() {
+    private void init() {
         setBackgroundColor(Color.TRANSPARENT);
         setDefaultLayoutParams();
         setDefaultId();
@@ -51,9 +51,9 @@ abstract class ContextualButton extends Button {
         setId(getDefaultId());
     }
 
-    public abstract int getDefaultId();
+    protected abstract int getDefaultId();
 
-    public abstract void setDefaultText();
+    protected abstract void setDefaultText();
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

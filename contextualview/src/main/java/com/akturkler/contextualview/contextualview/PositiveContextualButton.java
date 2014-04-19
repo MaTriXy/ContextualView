@@ -24,17 +24,17 @@ import android.content.Context;
 final class PositiveContextualButton extends ContextualButton {
     public static final int ID = 0;
 
-    public PositiveContextualButton(Context context) {
+    PositiveContextualButton(Context context) {
         super(context);
     }
 
     @Override
-    public int getDefaultId() {
+    protected int getDefaultId() {
         return ID;
     }
 
     @Override
-    public void setDefaultText() {
+    protected void setDefaultText() {
         setText("Positive");
     }
 }

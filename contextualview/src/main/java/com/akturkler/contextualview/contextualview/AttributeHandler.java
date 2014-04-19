@@ -19,5 +19,6 @@ package com.akturkler.contextualview.contextualview;
 /**
  * @author Emre Akturk
  */
-public class PropertyController {
+class AttributeHandler {
+
 }
